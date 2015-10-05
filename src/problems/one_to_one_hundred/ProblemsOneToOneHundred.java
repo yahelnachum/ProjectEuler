@@ -34,6 +34,12 @@ public class ProblemsOneToOneHundred {
 		case 8:
 			solveProblemEight();
 			break;
+		case 9:
+			solveProblemNine();
+			break;
+		case 10:
+			solveProblemTen();
+			break;
 		}
 	}
 	
@@ -237,6 +243,54 @@ public class ProblemsOneToOneHundred {
 		}
 		
 		System.out.printf("%d\n", largestProduct);
+	}
+
+	public static void solveProblemNine(){
+		for(int a = 1; a < 1000; a++){
+			for(int b = 1; b < 1000; b++){
+				for(int c = 1; c < 1000; c++){
+					if(a + b + c  == 1000 && a*a + b*b == c*c){
+						System.out.printf("Product abc, where a+b+c = 1000 and {a,b,c} are a pythagorean triplet: %d\n", a*b*c);
+						a = 1000;
+						b = a;
+						c = b;
+					}
+				}	
+			}	
+		}
+	}
+
+	public static void solveProblemTen(){
+		int size = 2000000;
+		boolean primeList[] = new boolean[size];
+		for(int i = 0; i < size; i++){
+			primeList[i] = true;
+		}
+		primeList[0] = false;
+		primeList[1] = false;
+		
+		// get all evens to be false except for 2
+		for(int i = 4; i < size; i+= 2){
+			primeList[i] = false;
+		}
+		
+		// go through all divisors and turn their multiples to false 
+		for(long i = 3; i < size - 1; i+=2){
+			long divisor = i;
+			
+			for(int j = (int) (divisor + divisor); j < size; j+=(int) divisor){
+				primeList[j] = false;
+			}
+		}
+		
+		long sum = 0;
+		for(int i = 0; i < size; i++){
+			if(primeList[i] == true && i < 2000000){
+				sum += i;
+			}
+		}
+		
+		System.out.printf("Find the sum of all the primes below two million: %d\n", sum);
 	}
 }
 
