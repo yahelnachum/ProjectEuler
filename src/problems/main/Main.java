@@ -7,7 +7,7 @@ public class Main {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		
-		ProblemsOneToOneHundred.solveOneToOneHundred(10);
+		ProblemsOneToOneHundred.solveOneToOneHundred(12);
 	}
 
 }
