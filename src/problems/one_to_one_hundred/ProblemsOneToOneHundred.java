@@ -359,7 +359,28 @@ public class ProblemsOneToOneHundred {
 	}
 
 	public static void solveProblemTwelve(){
+		long number = 0;
+		for(int i = 1; i < 10; i++){
+			number += i;
+			System.out.printf("\n%d %d\n", number, getNumberOfDivisors(number));
+			//if(getNumberOfDivisors(number) > 500){
+				//i = 1000;
+			//}
+		}
 		
+		System.out.printf("%d\n", number);
+	}
+	
+	public static int getNumberOfDivisors(long number){
+		int numOfDivisors = 2;
+		for(int i = 2; i < number; i++){
+			if (number % i == 0){
+				System.out.printf("%d ", i);
+				numOfDivisors++;
+			}
+		}
+		
+		return numOfDivisors;
 	}
 }
 
