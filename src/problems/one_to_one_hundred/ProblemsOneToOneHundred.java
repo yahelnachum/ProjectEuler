@@ -586,7 +586,27 @@ public class ProblemsOneToOneHundred {
 	}
 	
 	private static void solveProblemFifteen(){
+		long pascalTriangleRow[] = getPascalTriangleRow(41);
+		System.out.printf("Routes there are through a 20×20 grid: %d\n", pascalTriangleRow[pascalTriangleRow.length / 2]);
+	}
+	
+	private static long[] getPascalTriangleRow(int rowNumber){
+		long[] oldRow = {1};
+		long[] newRow = oldRow;
+		for(int i = 2; i < rowNumber+1; i++){
+			newRow = new long[i];
+			for(int j = 0; j < newRow.length; j++){
+				if(j == 0 || j == newRow.length - 1){
+					newRow[j] = 1;
+				}
+				else{
+					newRow[j] = oldRow[j-1] + oldRow[j];
+				}
+			}
+			oldRow = newRow;
+		}
 		
+		return newRow;
 	}
 }
 
