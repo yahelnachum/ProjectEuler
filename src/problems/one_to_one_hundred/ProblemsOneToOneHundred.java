@@ -50,6 +50,9 @@ public class ProblemsOneToOneHundred {
 		case 13:
 			solveProblemThriteen();
 			break;
+		case 14:
+			solveProblemFourteen();
+			break;
 		}
 	}
 	
@@ -545,6 +548,38 @@ public class ProblemsOneToOneHundred {
 		}
 		
 		System.out.println();
+	}
+	
+	public static void solveProblemFourteen(){
+		long largestNum = 0;
+		int largestSequence = 0;
+		for(long i = 999999; i > 0; i--){
+			int sequence = getSequenceLength(i, 0);
+			
+			if(largestSequence < sequence){
+				largestSequence = sequence;
+				largestNum = i;
+			}
+		}
+		
+		System.out.printf("The starting number, under one million, produces the longest chain is: %d\n", largestNum);
+
+	}
+	
+	public static int getSequenceLength(long num, int length){
+		if(num <= 1){
+			return length;
+		}
+		else if(num % 2 == 0){
+			num = (num / 2);
+			length++;
+			return getSequenceLength(num, length);
+		}
+		else{
+			num = (num * 3 + 1);
+			length++;
+			return getSequenceLength(num, length);
+		}
 	}
 }
 
