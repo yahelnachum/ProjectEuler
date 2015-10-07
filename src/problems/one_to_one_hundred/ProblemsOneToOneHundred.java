@@ -48,15 +48,18 @@ public class ProblemsOneToOneHundred {
 			solveProblemTwelve();
 			break;
 		case 13:
-			solveProblemThriteen();
+			solveProblemThirteen();
 			break;
 		case 14:
 			solveProblemFourteen();
 			break;
+		case 15:
+			solveProblemFifteen();
+			break;
 		}
 	}
 	
-	public static void solveProblemOne(){
+	private static void solveProblemOne(){
 		int sum = 0;
 		int highestNumber = 1000;
 		
@@ -69,7 +72,7 @@ public class ProblemsOneToOneHundred {
 		System.out.printf("Answer to problem 1 is: %d", sum);
 	}
 	
-	public static void solveProblemTwo(){
+	private static void solveProblemTwo(){
 		int previous = 1;
 		int current  = 2;
 		
@@ -86,7 +89,7 @@ public class ProblemsOneToOneHundred {
 		System.out.printf("Answer to problem 2 is: %d", sum);
 	}
 	
-	public static void solveProblemThree(){
+	private static void solveProblemThree(){
 
 		long num = 600851;
 	    num *= 1000000;
@@ -120,7 +123,7 @@ public class ProblemsOneToOneHundred {
 		}
 	}
 
-	public static void solveProblemFour(){
+	private static void solveProblemFour(){
 		int largestPalindrome = 0;
 		for(int i = 999; i > 99; i--){
 			for(int j = 999; j > 99; j--){
@@ -155,7 +158,7 @@ public class ProblemsOneToOneHundred {
 		System.out.printf("Largest palindrome made from the product of two 3-digit numbers: %d\n", largestPalindrome);
 	}
 
-	public static void solveProblemFive(){
+	private static void solveProblemFive(){
 		for(int i = 20; i < 1000000000; i+=20){
 			boolean divisibleByAll = true;
 			
@@ -173,7 +176,7 @@ public class ProblemsOneToOneHundred {
 		}
 	}
 
-	public static void solveProblemSix(){
+	private static void solveProblemSix(){
 		int sumOfSquares = 0;
 		int squareOfSums = 0;
 		
@@ -187,7 +190,7 @@ public class ProblemsOneToOneHundred {
 		System.out.printf("The difference between the sum of the squares of the first one hundred natural numbers and the square of the sum: %d\n", squareOfSums - sumOfSquares);
 	}
 
-	public static void solveProblemSeven(){
+	private static void solveProblemSeven(){
 		int size = 10000000;
 		boolean primeList[] = new boolean[size];
 		for(int i = 0; i < size; i++){
@@ -222,7 +225,7 @@ public class ProblemsOneToOneHundred {
 		}
 	}
 
-	public static void solveProblemEight(){
+	private static void solveProblemEight(){
 		String number =     "73167176531330624919225119674426574742355349194934" + 
 							"96983520312774506326239578318016984801869478851843" + 
 							"85861560789112949495459501737958331952853208805511" + 
@@ -258,7 +261,7 @@ public class ProblemsOneToOneHundred {
 		System.out.printf("%d\n", largestProduct);
 	}
 
-	public static void solveProblemNine(){
+	private static void solveProblemNine(){
 		for(int a = 1; a < 1000; a++){
 			for(int b = 1; b < 1000; b++){
 				for(int c = 1; c < 1000; c++){
@@ -273,7 +276,7 @@ public class ProblemsOneToOneHundred {
 		}
 	}
 
-	public static void solveProblemTen(){
+	private static void solveProblemTen(){
 		int size = 2000000;
 		boolean primeList[] = new boolean[size];
 		for(int i = 0; i < size; i++){
@@ -306,7 +309,7 @@ public class ProblemsOneToOneHundred {
 		System.out.printf("Find the sum of all the primes below two million: %d\n", sum);
 	}
 
-	public static void solveProblemEleven(){
+	private static void solveProblemEleven(){
 		int array[][] =  {{ 8, 2,22,97,38,15, 0,40, 0,75, 4, 5, 7,78,52,12,50,77,91, 8},
 						  {49,49,99,40,17,81,18,57,60,87,17,40,98,43,69,48, 4,56,62, 0},
 						  {81,49,31,73,55,79,14,29,93,71,40,67,53,88,30, 3,49,13,36,65},
@@ -365,7 +368,7 @@ public class ProblemsOneToOneHundred {
 		System.out.printf("Greatest product of four adjacent numbers in the same direction (up, down, left, right, or diagonally) in the 20×20 grid is: %d\n", largestProduct);
 	}
 
-	public static void solveProblemTwelve(){
+	private static void solveProblemTwelve(){
 		long number = 0;
 		boolean foundAnswer = false;
 		//System.out.printf("\n100: %d\n", getNumberOfDivisors(100));
@@ -381,7 +384,7 @@ public class ProblemsOneToOneHundred {
 			System.out.printf("The value of the first triangle number to have over five hundred divisors: %d\n", number);
 	}
 	
-	public static int getNumberOfDivisors(long number){
+	private static int getNumberOfDivisors(long number){
 		long originalNum = number;
 		int numOfDivisors = 1;
 		for(long i = 2; i < number; i++){
@@ -394,7 +397,7 @@ public class ProblemsOneToOneHundred {
 		return numOfDivisors;
 	}
 	
-	public static void solveProblemThriteen(){
+	private static void solveProblemThirteen(){
 		String strNumbers[] = {  "37107287533902102798797998220837590246510135740250",
 								 "46376937677490009712648124896970078050417018260538",
 								 "74324986199524741059474233309513058123726617309629",
@@ -530,7 +533,7 @@ public class ProblemsOneToOneHundred {
 		System.out.println("actual 3  :" +sum);
 	}
 	
-	public static void printEvery10Number(long array[]){
+	private static void printEvery10Number(long array[]){
 		for(int i = 0; i < array.length; i++){
 			
 			long temp = array[i];
@@ -550,7 +553,7 @@ public class ProblemsOneToOneHundred {
 		System.out.println();
 	}
 	
-	public static void solveProblemFourteen(){
+	private static void solveProblemFourteen(){
 		long largestNum = 0;
 		int largestSequence = 0;
 		for(long i = 999999; i > 0; i--){
@@ -566,7 +569,7 @@ public class ProblemsOneToOneHundred {
 
 	}
 	
-	public static int getSequenceLength(long num, int length){
+	private static int getSequenceLength(long num, int length){
 		if(num <= 1){
 			return length;
 		}
@@ -580,6 +583,10 @@ public class ProblemsOneToOneHundred {
 			length++;
 			return getSequenceLength(num, length);
 		}
+	}
+	
+	private static void solveProblemFifteen(){
+		
 	}
 }
 
