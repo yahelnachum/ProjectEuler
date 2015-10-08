@@ -56,7 +56,14 @@ public class ProblemsOneToOneHundred {
 		case 15:
 			solveProblemFifteen();
 			break;
+		case 16:
+			solveProblemSixteen();
+			break;
+		case 17:
+			solveProblemSeventeen();
+			break;
 		}
+		
 	}
 	
 	private static void solveProblemOne(){
@@ -607,6 +614,111 @@ public class ProblemsOneToOneHundred {
 		}
 		
 		return newRow;
+	}
+	
+	public static void solveProblemSixteen(){
+		BigInteger power = new BigInteger("2");
+		BigInteger base = new BigInteger("2");
+		
+		for(int i = 2; i <= 1000; i++){
+			base = base.multiply(power);
+		}
+		
+		String strNum = base.toString();
+		int sumOfDigits = 0;
+		for(int i = 0; i < strNum.length(); i++){
+			sumOfDigits += Integer.parseInt(strNum.substring(i, i+1));
+		}
+		
+		System.out.printf("The sum of the digits of the number 2^1000: %d\n", sumOfDigits);
+	}
+	
+	
+	public static void solveProblemSeventeen(){
+		int sumOfLength = 0;
+		for(int i = 1; i < 1000; i++){
+			sumOfLength += numberToString(i).length();
+		}
+		sumOfLength += "onethousand".length();
+		System.out.printf("Length of the string of all the numbers from 1 to 1000 (inclusive) written out in words: %d\n",sumOfLength);
+	}
+	
+	public static String numberToString(int num){
+		if(num >= 0 && num <= 15){
+			switch(num){
+			case 0:
+				return "";
+			case 1:
+				return "one";
+			case 2:
+				return "two";
+			case 3:
+				return "three";
+			case 4:
+				return "four";
+			case 5:
+				return "five";
+			case 6:
+				return "six";
+			case 7:
+				return "seven";
+			case 8:
+				return "eight";
+			case 9:
+				return "nine";
+			case 10:
+				return "ten";
+			case 11:
+				return "eleven";
+			case 12:
+				return "twelve";
+			case 13:
+				return "thirteen";
+			case 14:
+				return "fourteen";
+			case 15:
+				return "fifteen";
+			default:
+				return "";
+			}
+		}
+		else if(num == 18){
+			return numberToString(num % 10) + "een";
+		}
+		else if(num >= 16 && num <= 19){
+			return numberToString(num % 10) + "teen";
+		}
+		else if(num >= 20 && num <= 29){
+			return "twenty" + numberToString(num % 20);
+		}
+		else if(num >= 30 && num <= 39){
+			return "thirty" + numberToString(num % 30);
+		}
+		else if(num >= 40 && num <= 49){
+			return "forty" + numberToString(num % 40);
+		}
+		else if(num >= 50 && num <= 59){
+			return "fifty" + numberToString(num % 50);
+		}
+		else if(num >= 80 && num <= 89){
+			int number = num / 10;
+			number *= 10;
+			return numberToString(num / 10) + "y" + numberToString(num % number);
+		}
+		else if(num >= 60 && num <= 99){
+			int number = num / 10;
+			number *= 10;
+			return numberToString(num / 10) + "ty" + numberToString(num % number);
+		}
+		else if(num >= 100){
+			String restOfNum = "and" + numberToString(num % 100);
+			if(restOfNum.compareTo("and") == 0){
+				restOfNum = "";
+			}
+			return numberToString(num / 100) + "hundred" + restOfNum;
+		}
+		
+		return "";
 	}
 }
 
