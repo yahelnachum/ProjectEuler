@@ -7,6 +7,7 @@ import java.util.Collections;
 import problems.data_structures.StringScorer;
 import problems.data_structures.TriangleNode;
 import problems.utility.FileInput;
+import problems.utility.Numbers;
 
 public class ProblemsOneToOneHundred {
 
@@ -82,6 +83,9 @@ public class ProblemsOneToOneHundred {
 			break;
 		case 22:
 			solveProblemTwentyTwo();
+			break;
+		case 23:
+			solveProblemTwentyThree();
 			break;
 		case 67:
 			solveProblemSixtySeven();
@@ -426,23 +430,6 @@ public class ProblemsOneToOneHundred {
 		}
 		
 		return numOfDivisors;
-	}
-	
-	private static ArrayList<Integer> getDivisors(int number){
-		
-		ArrayList<Integer> divisors = new ArrayList<Integer>();
-		divisors.add(1);
-		int originalNum = number;
-		for(int i = 2; i < number; i++){
-			if (originalNum % i == 0){
-				number = originalNum / i;
-				divisors.add(i);
-				if(i != number)
-					divisors.add(number);
-			}
-		}
-		
-		return divisors;
 	}
 	
 	private static void solveProblemThirteen(){
@@ -857,11 +844,11 @@ public class ProblemsOneToOneHundred {
 			int a1 = i;
 			int a2 = 0;
 			int b = 0;
-			ArrayList<Integer> aDivisors = getDivisors(a1);
+			ArrayList<Integer> aDivisors = Numbers.getDivisors(a1);
 			for(int j = 0; j < aDivisors.size(); j++){
 				b += aDivisors.get(j);
 			}
-			ArrayList<Integer> bDivisors = getDivisors(b);
+			ArrayList<Integer> bDivisors = Numbers.getDivisors(b);
 			for(int j = 0; j < bDivisors.size(); j++){
 				a2 += bDivisors.get(j);
 			}
@@ -884,6 +871,24 @@ public class ProblemsOneToOneHundred {
 		}
 		
 		System.out.printf("The total of all the name scores in the file \"./problemTwentyTwoNames.txt\" is: %d\n", sum);
+	}
+	
+	public static void solveProblemTwentyThree(){
+		int maxNumber = 28123+1;
+		ArrayList<Integer> abundantNumbers = new ArrayList<Integer>();
+		for(int i = 1; i < maxNumber; i++){
+			if(Numbers.isAbundant(i)){
+				abundantNumbers.add(i);
+			}
+		}
+		
+		int sumOfNonAbundantNumbersSum = 0;
+		for(int i = 1; i < maxNumber; i++){
+			if(!Numbers.numberIsSumOfTwoAbundantNumbers(i, abundantNumbers))
+				sumOfNonAbundantNumbersSum += i;
+		}
+		
+		System.out.printf("The sum of all the positive integers which cannot be written as the sum of two abundant numbers is: %d\n", sumOfNonAbundantNumbersSum);
 	}
 	
 	public static void solveProblemSixtySeven(){
