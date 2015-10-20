@@ -51,5 +51,35 @@ public class TestNumbers {
 		assertEquals(Numbers.numberIsSumOfTwoAbundantNumbers(30, abundantNumbers), true);
 		assertEquals(Numbers.numberIsSumOfTwoAbundantNumbers(136, abundantNumbers), true);
 	}
+	
+	@Test
+	public void testSortArray() {
+		ArrayList<Integer> list0 = new ArrayList<Integer>();
+		list0.add(5);
+		list0.add(4);
+		list0.add(10);
+		list0.add(12);
+		list0.add(19);
+		
+		Numbers.sortArray(0, list0.size() - 1, list0);
+		
+		assertEquals(list0.get(0).intValue(), 4);
+		assertEquals(list0.get(2).intValue(), 10);
+		assertEquals(list0.get(4).intValue(), 19);
+		
+		ArrayList<Integer> list1 = new ArrayList<Integer>();
+		list1.add(9);
+		list1.add(8);
+		list1.add(7);
+		list1.add(6);
+		list1.add(5);
+		
+		Numbers.sortArray(2, list1.size() - 1, list1);
+		
+		assertEquals(list1.get(0).intValue(), 9);
+		assertEquals(list1.get(2).intValue(), 5);
+		assertEquals(list1.get(3).intValue(), 6);
+		assertEquals(list1.get(4).intValue(), 7);
+	}
 
 }

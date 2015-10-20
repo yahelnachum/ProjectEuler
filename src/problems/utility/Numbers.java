@@ -54,4 +54,48 @@ public class Numbers {
 		
 		return false;
 	}
+	
+	public static void sortArray(int firstIndex, int lastIndex, ArrayList<Integer> list){
+		if(firstIndex >= lastIndex){
+			return;
+		}
+		
+		int pivot = list.get(lastIndex);
+		
+		int j = firstIndex;
+		for(int i = firstIndex; i < lastIndex; i++){
+			if(list.get(i) <= pivot){
+				int temp = list.get(j);
+				list.set(j, list.get(i));
+				list.set(i, temp);
+				j++;
+			}
+		}
+		
+		list.set(lastIndex, list.get(j));
+		list.set(j, pivot);
+		
+		sortArray(firstIndex, j - 1, list);
+		sortArray(j + 1, lastIndex, list);
+	}
+	
+	public static boolean inReverseOrder(int firstIndex, int lastIndex, ArrayList<Integer> list){
+		int value = list.get(firstIndex);
+		for(int i = firstIndex; i <= lastIndex; i++){
+			if(value >= list.get(i)){
+				value = list.get(i);
+			}
+			else
+				return false;
+		}
+		return true;
+	}
+	
+	public static void swap(int index1, int index2, ArrayList<Integer> list){
+		int num1 = list.get(index1);
+		int num2 = list.get(index2);
+		list.set(index1, num2);
+		list.set(index2, num1);
+		
+	}
 }

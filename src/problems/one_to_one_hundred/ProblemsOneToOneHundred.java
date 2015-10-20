@@ -87,6 +87,9 @@ public class ProblemsOneToOneHundred {
 		case 23:
 			solveProblemTwentyThree();
 			break;
+		case 24:
+			solveProblemTwentyFour();
+			break;
 		case 67:
 			solveProblemSixtySeven();
 			break;
@@ -889,6 +892,66 @@ public class ProblemsOneToOneHundred {
 		}
 		
 		System.out.printf("The sum of all the positive integers which cannot be written as the sum of two abundant numbers is: %d\n", sumOfNonAbundantNumbersSum);
+	}
+	
+	public static void solveProblemTwentyFour(){
+		ArrayList<Integer> listOfNumbers = new ArrayList<Integer>();
+		listOfNumbers.add(0);
+		listOfNumbers.add(1);
+		listOfNumbers.add(2);
+		listOfNumbers.add(3);
+		listOfNumbers.add(4);
+		listOfNumbers.add(5);
+		listOfNumbers.add(6);
+		listOfNumbers.add(7);
+		listOfNumbers.add(8);
+		listOfNumbers.add(9);
+
+		int iteration = 1;
+		int focus = listOfNumbers.size() - 1;
+		while(focus != 0){
+
+			if(getNextLexigraphicNumberIndex(focus, listOfNumbers) == focus){
+				 Numbers.swap(focus, focus - 1, listOfNumbers);
+				 Numbers.sortArray(focus, listOfNumbers.size() - 1, listOfNumbers);
+				 focus = listOfNumbers.size() - 1;
+				 iteration++;
+			}
+			else if(getNextLexigraphicNumberIndex(focus, listOfNumbers) == 1000){
+				focus--;
+			}
+			else{
+				int index = getNextLexigraphicNumberIndex(focus, listOfNumbers);
+				Numbers.swap(focus - 1, index, listOfNumbers);
+				Numbers.sortArray(focus, listOfNumbers.size() - 1, listOfNumbers);
+				focus = listOfNumbers.size() - 1;
+				iteration++;
+			}
+
+			if(iteration == 1000000){
+				break;
+			}
+		}
+		
+		System.out.printf("The millionth lexicographic permutation of the digits 0, 1, 2, 3, 4, 5, 6, 7, 8 and 9 is: ");
+		for(int i = 0; i < listOfNumbers.size(); i++){
+			System.out.printf("%d", listOfNumbers.get(i));
+		}
+		System.out.println();
+	}
+	
+	private static int getNextLexigraphicNumberIndex(int index, ArrayList<Integer> list){
+		int value = list.get(index-1);
+		int smallestBiggerNumber = 1000;
+		int indexOfSmallestBiggerNumber = 1000;
+		for(int i = index; i < list.size(); i++){
+			if(value < list.get(i) && list.get(i) < smallestBiggerNumber){
+				smallestBiggerNumber = list.get(i);
+				indexOfSmallestBiggerNumber = i;
+			}
+		}
+		
+		return indexOfSmallestBiggerNumber;
 	}
 	
 	public static void solveProblemSixtySeven(){
