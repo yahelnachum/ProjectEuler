@@ -90,6 +90,9 @@ public class ProblemsOneToOneHundred {
 		case 24:
 			solveProblemTwentyFour();
 			break;
+		case 25:
+			solveProblemTwentyFive();
+			break;
 		case 67:
 			solveProblemSixtySeven();
 			break;
@@ -952,6 +955,21 @@ public class ProblemsOneToOneHundred {
 		}
 		
 		return indexOfSmallestBiggerNumber;
+	}
+	
+	public static void solveProblemTwentyFive(){
+		int index = 2;
+		BigInteger previous = new BigInteger("1");
+		BigInteger current = new BigInteger("1");
+		
+		while(current.toString().length() < 1000){
+			BigInteger temp = current.add(previous);
+			previous = current;
+			current = temp;
+			index++;
+		}
+		
+		System.out.printf("The index of the first term in the Fibonacci sequence to contain 1000 digits is: %d\n", index);
 	}
 	
 	public static void solveProblemSixtySeven(){
