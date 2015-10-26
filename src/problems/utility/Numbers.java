@@ -148,4 +148,15 @@ public class Numbers {
 		
 		return primeList;
 	}
+	
+	public static ArrayList<Integer> getDigits(int number){
+		ArrayList<Integer> digits = new ArrayList<Integer>();
+		
+		while(number > 0){
+			digits.add(number % 10);
+			number /= 10;
+		}
+		
+		return digits;
+	}
 }

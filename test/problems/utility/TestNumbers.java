@@ -115,4 +115,16 @@ public class TestNumbers {
 		assertEquals(list.get(2).intValue(), 3);
 		assertEquals(list.get(3).intValue(), 4);
 	}
+	
+	@Test
+	public void testGetDigits() {
+		ArrayList<Integer> digits = Numbers.getDigits(10234);
+		
+		assertEquals(digits.size(), 5);
+		assertEquals(digits.get(0).intValue(), 4);
+		assertEquals(digits.get(1).intValue(), 3);
+		assertEquals(digits.get(2).intValue(), 2);
+		assertEquals(digits.get(3).intValue(), 0);
+		assertEquals(digits.get(4).intValue(), 1);
+	}
 }
