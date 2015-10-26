@@ -109,6 +109,26 @@ public class ProblemsTwentySixToFifty {
 		System.out.printf("The product of the coefficients, a and b, for the quadratic expression that \nproduces the maximum number of primes for consecutive values of n, starting with n = 0 is: %d\n", biggestA * biggestB);
 	}
 	
+	public static void solveProblemTwentyEight(){
+		int sum = 1;
+		int currentNum = 1;
+		int length = 2;
+		int sideCount = 0;
+		
+		while(length < 1001){
+			currentNum += length;
+			sum += currentNum;
+			sideCount++;
+			
+			if(sideCount == 4){
+				sideCount = 0;
+				length += 2;
+			}
+		}
+		
+		System.out.printf("The sum of the numbers on the diagonals in a 1001 by 1001 spiral formed in the same way is: %d\n", sum);
+	}
+	
 	public static void solveProblemSixtySeven(){
 		int[][] triangleInt = { {59},
 								{73,41},
