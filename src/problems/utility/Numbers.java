@@ -98,4 +98,39 @@ public class Numbers {
 		list.set(index2, num1);
 		
 	}
+	
+	public static ArrayList<Integer> getPrimes(int upperNumberBound){
+		boolean isPrime[] = new boolean[upperNumberBound+1];
+		
+		// initialize all to true
+		for(int i = 0; i < isPrime.length; i++){
+			isPrime[i] = true;
+		}
+		
+		// get rid of 0 and 1
+		isPrime[0] = false;
+		isPrime[1] = false;
+		
+		// get rid of all evens
+		for(int i = 4; i < upperNumberBound+1; i+=2){
+			isPrime[i] = false;
+		}
+		
+		// go through each divisor and set multiples to false
+		for(int divisor = 3; divisor < upperNumberBound+1; divisor += 2){
+			for(int j = divisor + divisor; j < upperNumberBound+1; j += divisor){
+				isPrime[j] = false;
+			}
+		}
+		
+		ArrayList<Integer> primeList = new ArrayList<Integer>();
+		primeList.add(2);
+		for(int i = 3; i < upperNumberBound+1; i += 2){
+			if(isPrime[i]){
+				primeList.add(i);
+			}
+		}
+		
+		return primeList;
+	}
 }

@@ -1,15 +1,15 @@
 package problems.main;
 
-import problems.one_to_one_hundred.ProblemsOneToOneHundred;
+import problems.one_to_one_hundred.ProblemsOneToTwentyFive;
 import problems.utility.Clock;
 
 public class Main {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		int problemNum = 26;
+		int problemNum = 27;
 		Clock timer = new Clock();
-		ProblemsOneToOneHundred.solveOneToOneHundred(problemNum);
+		ProblemTerminal.solveOneToFiveHundred(problemNum);
 		long delta = timer.delta();
 		long milliseconds = delta % 1000;
 		long seconds = (delta / 1000) % 60;
