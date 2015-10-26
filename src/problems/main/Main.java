@@ -7,7 +7,7 @@ public class Main {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		int problemNum = 28;
+		int problemNum = 29;
 		Clock timer = new Clock();
 		ProblemTerminal.solveOneToFiveHundred(problemNum);
 		long delta = timer.delta();

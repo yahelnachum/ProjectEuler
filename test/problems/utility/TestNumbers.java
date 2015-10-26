@@ -4,6 +4,8 @@ import static org.junit.Assert.assertEquals;
 
 import java.util.ArrayList;
 
+import junit.framework.Assert;
+
 import org.junit.Test;
 
 public class TestNumbers {
@@ -82,4 +84,35 @@ public class TestNumbers {
 		assertEquals(list1.get(4).intValue(), 7);
 	}
 
+	@Test
+	public void testRemoveDuplicates() {
+		ArrayList<Integer> list = new ArrayList<Integer>();
+		list.add(1);
+		list.add(1);
+		list.add(1);
+		list.add(2);
+		
+		assertEquals(list.size(), 4);
+		
+		Numbers.removeDuplicates(list);
+		
+		assertEquals(list.size(), 2);
+		assertEquals(list.get(0).intValue(), 1);
+		assertEquals(list.get(1).intValue(), 2);
+		
+		list.add(4);
+		list.add(4);
+		list.add(3);
+		list.add(3);
+		
+		assertEquals(list.size(), 6);
+		
+		Numbers.removeDuplicates(list);
+		
+		assertEquals(list.size(), 4);
+		assertEquals(list.get(0).intValue(), 1);
+		assertEquals(list.get(1).intValue(), 2);
+		assertEquals(list.get(2).intValue(), 3);
+		assertEquals(list.get(3).intValue(), 4);
+	}
 }

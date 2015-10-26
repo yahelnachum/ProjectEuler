@@ -99,6 +99,21 @@ public class Numbers {
 		
 	}
 	
+	public static void removeDuplicates(ArrayList<Integer> list){
+		sortArray(0, list.size() - 1, list);
+		
+		int number = list.get(0);
+		for(int i = 1; i < list.size(); i++){
+			if(list.get(i) == number){
+				list.remove(i);
+				i--;
+			}
+			else{
+				number = list.get(i);
+			}
+		}
+	}
+	
 	public static ArrayList<Integer> getPrimes(int upperNumberBound){
 		boolean isPrime[] = new boolean[upperNumberBound+1];
 		
