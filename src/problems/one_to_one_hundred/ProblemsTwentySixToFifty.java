@@ -169,6 +169,33 @@ public class ProblemsTwentySixToFifty {
 		System.out.printf("The sum of all the numbers that can be written as the sum of fifth powers of their digits is: %d\n", sum);
 	}
 	
+	public static void solveProblemThirtyOne(){
+		
+		int possibilities = 8;
+		//1p, 2p, 5p, 10p, 20p, 50p, £1 (100p) and £2 (200p).
+		//200, 100, 40, 20, 10, 4, 2, 1
+		for(int i = 0; i < 200; i++){
+			for(int j = 0; j < 100; j++){
+				for(int k = 0; k < 40; k++){
+					for(int l = 0; l < 20; l++){
+						for(int m = 0; m < 10; m++){
+							for(int n = 0; n < 4; n++){
+								for(int o = 0; o < 2; o++){
+									int sum = i + 2*j + 5*k + 10*l + 20*m + 50*n + 100*o;
+									if(sum == 200){
+										possibilities++;
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+		
+		System.out.printf("The number of different ways can £2 be made using any number of coins: %d\n", possibilities);
+	}
+	
 	public static void solveProblemSixtySeven(){
 		int[][] triangleInt = { {59},
 								{73,41},
