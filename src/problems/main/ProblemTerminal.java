@@ -3,14 +3,22 @@ package problems.main;
 import problems.one_to_one_hundred.ProblemsOneToTwentyFive;
 import problems.one_to_one_hundred.ProblemsTwentySixToFifty;
 
+/**
+ * @author yahel
+ * 
+ * Terminal to send the problems to the right class
+ */
 public class ProblemTerminal {
 
 	public static void solveOneToFiveHundred(int problemNumber){
+		
+		// if number is out of range then ignore
 		if(problemNumber > 500 || problemNumber < 1){
 			System.out.printf("ERROR: problemNumber given is not supported by this function!\n");
 			return ;
 		}
 		
+		// tell the function to solve the corresponding problem
 		switch(problemNumber){
 		case 1:
 			ProblemsOneToTwentyFive.solveProblemOne();

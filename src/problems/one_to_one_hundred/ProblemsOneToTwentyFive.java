@@ -9,8 +9,16 @@ import problems.data_structures.TriangleNode;
 import problems.utility.FileInput;
 import problems.utility.Numbers;
 
+/**
+ * @author yahel
+ *
+ * Solves problems 1 - 25
+ */
 public class ProblemsOneToTwentyFive {
 	
+	/**
+	 *  Multiples of 3 and 5
+	 */
 	public static void solveProblemOne(){
 		int sum = 0;
 		int highestNumber = 1000;
@@ -24,6 +32,9 @@ public class ProblemsOneToTwentyFive {
 		System.out.printf("Answer to problem 1 is: %d", sum);
 	}
 	
+	/**
+	 * Even fibonacci numbers
+	 */
 	public static void solveProblemTwo(){
 		int previous = 1;
 		int current  = 2;
@@ -41,12 +52,16 @@ public class ProblemsOneToTwentyFive {
 		System.out.printf("Answer to problem 2 is: %d", sum);
 	}
 	
+	/**
+	 * Largest prime factor
+	 */
 	public static void solveProblemThree(){
 
 		long num = 600851;
 	    num *= 1000000;
 	    num += 475143;
 		
+	    // generate prime number list
 		int size = 1000000;
 		boolean primeList[] = new boolean[size];
 		for(int i = 0; i < size; i++){
@@ -75,6 +90,9 @@ public class ProblemsOneToTwentyFive {
 		}
 	}
 
+	/**
+	 * Largest palindrome product
+	 */
 	public static void solveProblemFour(){
 		int largestPalindrome = 0;
 		for(int i = 999; i > 99; i--){
@@ -110,6 +128,9 @@ public class ProblemsOneToTwentyFive {
 		System.out.printf("Largest palindrome made from the product of two 3-digit numbers: %d\n", largestPalindrome);
 	}
 
+	/**
+	 * Smallest multiple
+	 */
 	public static void solveProblemFive(){
 		for(int i = 20; i < 1000000000; i+=20){
 			boolean divisibleByAll = true;
@@ -128,6 +149,9 @@ public class ProblemsOneToTwentyFive {
 		}
 	}
 
+	/**
+	 * Sum square difference
+	 */
 	public static void solveProblemSix(){
 		int sumOfSquares = 0;
 		int squareOfSums = 0;
@@ -142,6 +166,9 @@ public class ProblemsOneToTwentyFive {
 		System.out.printf("The difference between the sum of the squares of the first one hundred natural numbers and the square of the sum: %d\n", squareOfSums - sumOfSquares);
 	}
 
+	/**
+	 * 100001st prime
+	 */
 	public static void solveProblemSeven(){
 		int size = 10000000;
 		boolean primeList[] = new boolean[size];
@@ -177,6 +204,9 @@ public class ProblemsOneToTwentyFive {
 		}
 	}
 
+	/**
+	 * Largest product in series
+	 */
 	public static void solveProblemEight(){
 		String number =     "73167176531330624919225119674426574742355349194934" + 
 							"96983520312774506326239578318016984801869478851843" + 
@@ -213,6 +243,9 @@ public class ProblemsOneToTwentyFive {
 		System.out.printf("%d\n", largestProduct);
 	}
 
+	/**
+	 * Pythagorean triplet
+	 */
 	public static void solveProblemNine(){
 		for(int a = 1; a < 1000; a++){
 			for(int b = 1; b < 1000; b++){
@@ -228,6 +261,9 @@ public class ProblemsOneToTwentyFive {
 		}
 	}
 
+	/**
+	 * Summation of primes
+	 */
 	public static void solveProblemTen(){
 		int size = 2000000;
 		boolean primeList[] = new boolean[size];
@@ -261,6 +297,9 @@ public class ProblemsOneToTwentyFive {
 		System.out.printf("Find the sum of all the primes below two million: %d\n", sum);
 	}
 
+	/**
+	 * Largest product in a grid
+	 */
 	public static void solveProblemEleven(){
 		int array[][] =  {{ 8, 2,22,97,38,15, 0,40, 0,75, 4, 5, 7,78,52,12,50,77,91, 8},
 						  {49,49,99,40,17,81,18,57,60,87,17,40,98,43,69,48, 4,56,62, 0},
@@ -320,6 +359,9 @@ public class ProblemsOneToTwentyFive {
 		System.out.printf("Greatest product of four adjacent numbers in the same direction (up, down, left, right, or diagonally) in the 20×20 grid is: %d\n", largestProduct);
 	}
 
+	/**
+	 * Highly divisible triangular number
+	 */
 	public static void solveProblemTwelve(){
 		long number = 0;
 		boolean foundAnswer = false;
@@ -349,6 +391,9 @@ public class ProblemsOneToTwentyFive {
 		return numOfDivisors;
 	}
 	
+	/**
+	 * Large sum
+	 */
 	public static void solveProblemThirteen(){
 		String strNumbers[] = {  "37107287533902102798797998220837590246510135740250",
 								 "46376937677490009712648124896970078050417018260538",
@@ -505,6 +550,9 @@ public class ProblemsOneToTwentyFive {
 		System.out.println();
 	}
 	
+	/**
+	 * Longest Collatz sequence
+	 */
 	public static void solveProblemFourteen(){
 		long largestNum = 0;
 		int largestSequence = 0;
@@ -537,6 +585,9 @@ public class ProblemsOneToTwentyFive {
 		}
 	}
 	
+	/**
+	 * Lattice paths
+	 */
 	public static void solveProblemFifteen(){
 		long pascalTriangleRow[] = getPascalTriangleRow(41);
 		System.out.printf("Routes there are through a 20×20 grid: %d\n", pascalTriangleRow[pascalTriangleRow.length / 2]);
@@ -561,6 +612,9 @@ public class ProblemsOneToTwentyFive {
 		return newRow;
 	}
 	
+	/**
+	 * Power digit sum
+	 */
 	public static void solveProblemSixteen(){
 		BigInteger power = new BigInteger("2");
 		BigInteger base = new BigInteger("2");
@@ -579,6 +633,9 @@ public class ProblemsOneToTwentyFive {
 	}
 	
 	
+	/**
+	 * Number letter counts
+	 */
 	public static void solveProblemSeventeen(){
 		int sumOfLength = 0;
 		for(int i = 1; i < 1000; i++){
@@ -666,6 +723,9 @@ public class ProblemsOneToTwentyFive {
 		return "";
 	}
 	
+	/**
+	 * Maximum path sum I
+	 */
 	public static void solveProblemEighteen(){
 		int[][] triangleInt = { {75},
 								{95,64},
@@ -707,6 +767,9 @@ public class ProblemsOneToTwentyFive {
 		System.out.printf("Maximum total from top to bottom of the triangle is: %d\n", largestSum);
 	}
 	
+	/**
+	 * Counting Sundays
+	 */
 	public static void solveProblemNineteen(){
 		// January 		31
 		// February		28/29
@@ -740,6 +803,9 @@ public class ProblemsOneToTwentyFive {
 		
 	}
 	
+	/**
+	 * Factorial digit sum
+	 */
 	public static void solveProblemTwenty(){
 		BigInteger factorialNum = new BigInteger("1");
 		for(int i = 2; i < 101; i++){
@@ -755,6 +821,9 @@ public class ProblemsOneToTwentyFive {
 		System.out.printf("The sum of the digits in the number 100! is: %d\n", sumOfDigits);
 	}
 	
+	/**
+	 * Amicable numbers
+	 */
 	public static void solveProblemTwentyOne(){
 		int amicableSum = 0;
 		for(int i = 2; i < 10000; i++){
@@ -777,6 +846,9 @@ public class ProblemsOneToTwentyFive {
 		System.out.printf("The sum of all the amicable numbers under 10000 is: %d\n", amicableSum);
 	}
 	
+	/**
+	 * Names scores
+	 */
 	public static void solveProblemTwentyTwo(){
 		ArrayList<String> namesList = new ArrayList<String>();
 		namesList = FileInput.getNamesArrayListForProblemTwentyTwo();
@@ -790,6 +862,9 @@ public class ProblemsOneToTwentyFive {
 		System.out.printf("The total of all the name scores in the file \"./problemTwentyTwoNames.txt\" is: %d\n", sum);
 	}
 	
+	/**
+	 * Non-abundant sums
+	 */
 	public static void solveProblemTwentyThree(){
 		int maxNumber = 28123+1;
 		ArrayList<Integer> abundantNumbers = new ArrayList<Integer>();
@@ -808,6 +883,9 @@ public class ProblemsOneToTwentyFive {
 		System.out.printf("The sum of all the positive integers which cannot be written as the sum of two abundant numbers is: %d\n", sumOfNonAbundantNumbersSum);
 	}
 	
+	/**
+	 * Lexicographic permutations
+	 */
 	public static void solveProblemTwentyFour(){
 		ArrayList<Integer> listOfNumbers = new ArrayList<Integer>();
 		listOfNumbers.add(0);
@@ -868,6 +946,9 @@ public class ProblemsOneToTwentyFive {
 		return indexOfSmallestBiggerNumber;
 	}
 	
+	/**
+	 * 1000-digit Fibonacci number
+	 */
 	public static void solveProblemTwentyFive(){
 		int index = 2;
 		BigInteger previous = new BigInteger("1");
