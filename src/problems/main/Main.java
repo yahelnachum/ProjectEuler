@@ -10,7 +10,7 @@ public class Main {
 		 * start clock, start problem, when the problem is done stop clock and
 		 * print out results
 		 */
-		int problemNum = 31;
+		int problemNum = 32;
 		Clock timer = new Clock();
 		ProblemTerminal.solveOneToFiveHundred(problemNum);
 		long delta = timer.delta();

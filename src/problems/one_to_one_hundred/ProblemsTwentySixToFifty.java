@@ -6,6 +6,7 @@ import java.math.RoundingMode;
 import java.util.ArrayList;
 
 import problems.data_structures.TriangleNode;
+import problems.utility.Clock;
 import problems.utility.Numbers;
 
 /**
@@ -219,6 +220,39 @@ public class ProblemsTwentySixToFifty {
 		}
 		
 		System.out.printf("The number of different ways can £2 be made using any number of coins: %d\n", possibilities);
+	}
+	
+	/**
+	 * 1..9 Pandigital Products
+	 */
+	public static void solveProblemThirtyTwo(){
+		//TODO make this more efficient
+		
+		int sum = 0;
+		ArrayList<Integer> products = new ArrayList<Integer>();
+		Clock c = new Clock();
+		for(int i = 1; i < 10000000; i++){
+			for(int j = 1; j < 10000000 / i; j++){
+				if(Numbers.isPandigitalProduct(i, j, i*j)){
+					
+					boolean found = false;
+					for(int k = 0; k < products.size(); k++){
+						if(products.get(k) == i*j){
+							found = true;
+						}
+					}
+					
+					if(!found){
+						sum += i*j;
+						products.add(i*j);
+						
+						System.out.printf("%d*%d=%d\n", i, j, i*j);
+					}
+				}
+			}
+		}
+
+		System.out.printf("The sum of all 1..9 pandigital products: %d\n", sum);
 	}
 	
 	/**

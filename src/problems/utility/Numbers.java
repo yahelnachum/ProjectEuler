@@ -5,6 +5,39 @@ import java.util.Collections;
 
 public class Numbers {
 	
+	public static boolean isPandigitalProduct(int multiplicand, int multiplier, int product){
+		
+		if(multiplicand * multiplier != product)
+			return false;
+		
+		ArrayList<Integer> allDigits = new ArrayList<Integer>();
+		allDigits.addAll(getDigits(multiplicand));
+		allDigits.addAll(getDigits(multiplier));
+		allDigits.addAll(getDigits(product));
+		
+		if(allDigits.size() != 9)
+			return false;
+		
+		boolean[] numberUsed = new boolean[10];
+		for(int i = 0; i < allDigits.size(); i++){
+			if(numberUsed[allDigits.get(i)] == true || allDigits.get(i) == 0)
+				return false;
+			else{
+				numberUsed[allDigits.get(i)] = true;
+			}
+		}
+		
+		int sum = 0;
+		for(int i = 0; i < numberUsed.length; i++){
+			if(numberUsed[i] == true)
+				sum++;
+		}
+		
+		if(sum == 9)
+			return true;
+		return false;
+	}
+	
 	public static ArrayList<Integer> getDivisors(int number){
 			
 		ArrayList<Integer> divisors = new ArrayList<Integer>();
