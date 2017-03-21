@@ -194,7 +194,9 @@ public class ProblemsTwentySixToFifty {
 	 */
 	public static void solveProblemThirtyOne(){
 		
-		int possibilities = 8;
+		int possibilities = 8; /* 8 initial possibilities because of each 
+								* currency by itself adding up to 200p */
+		
 		//1p, 2p, 5p, 10p, 20p, 50p, £1 (100p) and £2 (200p).
 		//200, 100, 40, 20, 10, 4, 2, 1
 		for(int i = 0; i < 200; i++){
