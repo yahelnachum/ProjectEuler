@@ -5,39 +5,6 @@ import java.util.Collections;
 
 public class Numbers {
 	
-	public static boolean isPandigitalProduct(int multiplicand, int multiplier, int product){
-		
-		if(multiplicand * multiplier != product)
-			return false;
-		
-		ArrayList<Integer> allDigits = new ArrayList<Integer>();
-		allDigits.addAll(getDigits(multiplicand));
-		allDigits.addAll(getDigits(multiplier));
-		allDigits.addAll(getDigits(product));
-		
-		if(allDigits.size() != 9)
-			return false;
-		
-		boolean[] numberUsed = new boolean[10];
-		for(int i = 0; i < allDigits.size(); i++){
-			if(numberUsed[allDigits.get(i)] == true || allDigits.get(i) == 0)
-				return false;
-			else{
-				numberUsed[allDigits.get(i)] = true;
-			}
-		}
-		
-		int sum = 0;
-		for(int i = 0; i < numberUsed.length; i++){
-			if(numberUsed[i] == true)
-				sum++;
-		}
-		
-		if(sum == 9)
-			return true;
-		return false;
-	}
-	
 	public static ArrayList<Integer> getDivisors(int number){
 			
 		ArrayList<Integer> divisors = new ArrayList<Integer>();
@@ -191,5 +158,35 @@ public class Numbers {
 		}
 		
 		return digits;
+	}
+
+	public static ArrayList<ArrayList<Integer>> getPermutations(ArrayList<Integer> list){
+		ArrayList<ArrayList<Integer>> permutations = new ArrayList<ArrayList<Integer>>();
+		
+		if(list.size() == 2){
+			permutations.add(list);
+			
+			ArrayList<Integer> clone = (ArrayList<Integer>) list.clone();
+			
+			int temp = clone.get(0);
+			clone.set(0, clone.get(1));
+			clone.set(1, temp);
+			
+			permutations.add(clone);
+		}else{
+			for(int i = 0; i < list.size(); i++){
+				ArrayList<Integer> clone = (ArrayList<Integer>) list.clone();
+				int temp = clone.remove(i);
+				
+				ArrayList<ArrayList<Integer>> smallerPermutations = getPermutations(clone);
+				for(int j = 0; j < smallerPermutations.size(); j++){
+					smallerPermutations.get(j).add(0, temp);
+				}
+				permutations.addAll(smallerPermutations);
+			}
+		}
+		
+		return permutations;
+		
 	}
 }

@@ -226,33 +226,100 @@ public class ProblemsTwentySixToFifty {
 	 * 1..9 Pandigital Products
 	 */
 	public static void solveProblemThirtyTwo(){
-		//TODO make this more efficient
+		
+		ArrayList<Integer> digits = new ArrayList<Integer>();
+		digits.add(1);
+		digits.add(2);
+		digits.add(3);
+		digits.add(4);
+		digits.add(5);
+		digits.add(6);
+		digits.add(7);
+		digits.add(8);
+		digits.add(9);
+		
+		ArrayList<ArrayList<Integer>> permutations = Numbers.getPermutations(digits);
 		
 		int sum = 0;
 		ArrayList<Integer> products = new ArrayList<Integer>();
-		Clock c = new Clock();
-		for(int i = 1; i < 10000000; i++){
-			for(int j = 1; j < 10000000 / i; j++){
-				if(Numbers.isPandigitalProduct(i, j, i*j)){
+		for(int i = 0; i < permutations.size(); i++){
+			for(int j = 1; j < permutations.get(i).size() - 2; j++){
+				for(int k = j+1; k < permutations.get(i).size() - 1; k++){
 					
-					boolean found = false;
-					for(int k = 0; k < products.size(); k++){
-						if(products.get(k) == i*j){
-							found = true;
+					int multiplicand = 0;
+					for(int l = 0; l < j; l++){
+						multiplicand = multiplicand * 10 + permutations.get(i).get(l);
+					}
+					
+					int multiplier = 0;
+					for(int l = j; l < k; l++){
+						multiplier = multiplier * 10 + permutations.get(i).get(l);
+					}
+					
+					int product = 0;
+					for(int l = k; l < permutations.get(i).size(); l++){
+						product = product * 10 + permutations.get(i).get(l);
+					}
+					
+					//System.out.printf("%d*%d=%d\n", multiplicand, multiplier, product);
+					
+					if(multiplicand * multiplier == product){
+						
+						boolean found = false;
+						for(int l = 0; l < products.size(); l++){
+							if(products.get(l) == product){
+								found = true;
+							}
+						}
+						
+						if(!found){
+							sum += product;
+							products.add(product);
 						}
 					}
 					
-					if(!found){
-						sum += i*j;
-						products.add(i*j);
+				}	
+			}
+		}
+		
+		System.out.printf("The sum of all 1..9 pandigital products: %d\n", sum);
+	}
+	
+	/**
+	 * Non-trivial Curious Fractions
+	 */
+	public static void solveProblemThirtyThree(){
+		
+		int product = 1;
+		
+		for(int i = 11; i < 99; i++){
+			for(int j = 10; j < i; j++){
+				float fraction = ((float) j / i);
+				ArrayList<Float> permutations = new ArrayList<Float>();
+				permutations.add( (((float)j/10) / ((float)i/10)));
+				if(j % 10 != 0){
+					permutations.add( ((j%10) / ((float)i/10)));
+				}
+				if(i % 10 != 0){
+					permutations.add( (((float)j/10) / (i%10)));
+				}
+				if(i % 10 != 0 && j % 10 != 0){
+					permutations.add( ((float)(j%10) / (i%10)));
+				}
+				for(int k = 0; k < permutations.size(); k++){
+					if(permutations.get(k) == fraction){
+						//System.out.printf("%f\n%f\n", fraction, permutations.get(k));
+						System.out.printf("%d/%d, %d\n", j, i, k);
+						k = permutations.size();
 						
-						System.out.printf("%d*%d=%d\n", i, j, i*j);
+						//System.out.println(product);
+						product *= i;
 					}
 				}
 			}
 		}
-
-		System.out.printf("The sum of all 1..9 pandigital products: %d\n", sum);
+		
+		System.out.printf("The product of the denominators of simplified non-trivial curious fractions: %d\n", product);
 	}
 	
 	/**
