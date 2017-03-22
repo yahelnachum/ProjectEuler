@@ -119,6 +119,9 @@ public class ProblemTerminal {
 		case 33:
 			ProblemsTwentySixToFifty.solveProblemThirtyThree();
 			break;
+		case 34:
+			ProblemsTwentySixToFifty.solveProblemThirtyFour();
+			break;
 		case 67:
 			ProblemsTwentySixToFifty.solveProblemSixtySeven();
 			break;

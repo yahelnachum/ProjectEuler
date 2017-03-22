@@ -323,6 +323,39 @@ public class ProblemsTwentySixToFifty {
 	}
 	
 	/**
+	 * Curious Factorial Sums
+	 */
+	public static void solveProblemThirtyFour(){
+		int sum = 0;
+		
+		ArrayList<Integer> factorialDict = new ArrayList<Integer>();
+		factorialDict.add(1);
+		for(int i = 1; i < 10; i++){
+			int factorial = 1;
+			for(int j = i; j > 1; j--){
+				factorial *= j;
+			}
+			factorialDict.add(i, factorial);
+		}
+		for(int i = 10; i < 10000000; i++){
+			
+			ArrayList<Integer> digits = Numbers.getDigits(i);
+			int factorialSum = 0;
+			for(int j = 0; j < digits.size(); j++){
+				factorialSum += factorialDict.get(digits.get(j));
+			}
+			
+			//System.out.printf("%d, %d\n", i, factorialSum);
+			
+			if(factorialSum == i){
+				sum += i;
+			}
+		}
+		
+		System.out.printf("The sum of all curious factorial sums is: %d\n", sum);
+	}
+	
+	/**
 	 * Maximum path sums II
 	 */
 	public static void solveProblemSixtySeven(){
